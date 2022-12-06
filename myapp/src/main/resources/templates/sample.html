@@ -1,3 +1,4 @@
+<c:set var="path1" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
  xmlns:th="http://www.thymeleaf.org"
@@ -10,10 +11,13 @@
 </head>
 <body>
   <div class="wrapper">
-  
-  	<!-- navbar -->
-	<th:block th:include="fragments/common/navbar"></th:block>
-    <h1>메인 화면</h1>
+    <h1>샘플</h1>
+    <table>
+    	<c:forEach items="${getSample }" var="sa">
+    	<td>${sa.id }</td>
+    	<td>${sa.pw }</td>
+    	</c:forEach>
+    </table>
   </div>
 </body>
 </html>
