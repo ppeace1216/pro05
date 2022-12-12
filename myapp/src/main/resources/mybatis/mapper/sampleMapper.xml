@@ -6,4 +6,5 @@
 	<select id="getSample" resultType="com.shop.myapp.dto.SampleDTO">
 		select * from sample
 	</select>
+	<select id="sampleDetail"></select>
 </mapper>

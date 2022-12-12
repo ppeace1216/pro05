@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>게시판 목록</title>
+</head>
+<body>
+<header id="header">
+
+</header>
+<div class="content" id="content">
+<!-- navbar -->
+	<th:block th:include="fragments/common/navbar"></th:block>
+	<div class="row column text-center">
+      <h2>공지사항 작성</h2>
+      <hr>
+		<div class="container">
+      	<form th:action="@{/board/insert.do}" method="post">
+		   <table id="table1">
+			 <tbody>
+			    <tr>
+			      <th>제목</th>
+			      <td>
+			      	<input type="text" name="title" id="title" placeholder="제목 입력" maxlength="98" required>
+			      </td>
+			    </tr>
+			    <tr>
+			      <th>내용</th>
+			      <td>
+			      	<textarea name="content" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength=900 required></textarea>
+			      </td>
+			    </tr>
+			    <tr>
+	      			<td colspan="2">
+	      				<input type="submit" class="submit success button" value="글 등록" >
+	      				<a class="button" th:href="@{/board/list.do}">글 목록</a>
+	      			</td>
+	      		</tr>
+			  </tbody>
+			</table>
+		</form>
+		</div>
+    </div>
+</div>
+<footer id="footer" class="footer-nav row expanded collapse">
+</footer>
+</body>
+</html>

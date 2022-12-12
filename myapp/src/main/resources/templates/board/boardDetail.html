@@ -1,3 +1,4 @@
+<c:set var="path1" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
  xmlns:th="http://www.thymeleaf.org"
@@ -16,28 +17,34 @@
 <!-- navbar -->
 	<th:block th:include="fragments/common/navbar"></th:block>
 	<div class="row column text-center">
-      <h2>공지사항 목록</h2>
+      <h2>공지사항 상세보기</h2>
       <hr>
       <div class="container">
 		     <table>
-			  <thead>
-			    <tr>
-			      <th width="100">NO</th>
-			      <th>TITLE</th>
-			      <th width="150">REGDATE</th>
-			    </tr>
-			  </thead>
 			  <tbody>
-			    <tr th:each="bo, status : ${boardList}">
-			      <td th:text="${status.count }"></td>
-			      <td><a th:href="@{/board/detail.do(no=${bo.no })}" th:text="${bo.title}"></span></a></td>
-			      <td th:text="${bo.resdate}"></td>
-			    </tr>
+			    <tr th:object="${dto}">
+	      			<th>번호</th>
+	      			<td th:text="*{no}"></td>
+	      		</tr>	
+	      		<tr>
+	      			<th>제목</th>
+	      			<td th:text="*{title}"></td>
+	      		</tr>
+	      		<tr>
+	      			<th>내용</th>
+	      			<td><p th:text="*{content}"></p></td>
+	      		</tr>
+	      		<tr>
+	      			<th>작성일시</th>
+	      			<td th:text="*{resdate}"></td>
+	      		</tr>
 			  </tbody>
 			</table>
 			<div class="button-group">
-				  <a class="button" th:href="@{/board/insert.do }">글쓰기</a>
-			</div>
+				  <a class="button" th:href="@{/board/list.do }">목록으로</a>
+				  <a class="button" th:href="@{/board/delete.do(no=${dto.no })}">삭제</a>
+				  <a class="button" th:href="@{/board/edit.do(no=${dto.no})}">수정</a>
+				</div>
 		</div>
     </div>
 </div>

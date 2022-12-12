@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset = "UTF-8">
+  <title>메인 데이터</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<h1>타임리프 테스트 6</h1>
+	<h2>태그로 묶지 않고 replace</h2>
+	<th:block th:replace="test_hd"></th:block>
+	
+	<h2>태그로 묶어 replace</h2>
+	<header th:replace="test_hd" id="hd3"></header>
+	
+	<h2>태그로 묶어 각각의 fragment로 replace</h2>
+	<header id="hd4">
+		<th:block th:replace="test_hd :: logo"></th:block>
+		<th:block th:replace="test_hd :: gnb"></th:block>
+		<th:block th:replace="test_hd :: tnb"></th:block>
+	</header>
+	<hr>
+	
+	<h2>replace의 fragment 매개변수에 의한 템플릿 불러오기</h2>
+	<header id="hd5">
+		<div th:replace="test_hd :: dataParam('데이터1', '데이터2')" ></div>
+	</header>
+	
+</body>
+</html>

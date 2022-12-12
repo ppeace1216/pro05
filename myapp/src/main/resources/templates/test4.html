@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset = "UTF-8">
+  <title>메인 데이터</title>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+	<h1>타임리프 테스트 2</h1>
+	<ul th:object="${thy2}">
+		<li th:text="*{id}"></li>
+		<li th:text="*{pw}"></li>
+	</ul>
+	<a href="https://www.naver.com">네이버</a>
+	<a th:href="@{/test5}">test5로</a>
+</body>
+</html>
